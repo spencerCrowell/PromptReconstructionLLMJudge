@@ -1,0 +1,269 @@
+{
+  "samples_total": 250,
+  "samples_valid_for_all_methods": 249,
+  "invalid_counts_per_method": {
+    "direct": 0,
+    "basic": 0,
+    "multi": 0,
+    "cross": 0,
+    "delta": 1
+  },
+  "human_A_fraction": 0.5301204819277109,
+  "majority_class_accuracy": 0.5301204819277109,
+  "results": {
+    "direct": {
+      "name": "Direct judge",
+      "n": 249,
+      "accuracy": 0.7991967871485943,
+      "ci95": [
+        0.7468875502008032,
+        0.8473895582329317
+      ],
+      "predicted_A_fraction": 0.5542168674698795,
+      "agreement_with_direct": 1.0,
+      "confusion_matrix": [
+        [
+          110,
+          22
+        ],
+        [
+          28,
+          89
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n           A      0.797     0.833     0.815       132\n           B      0.802     0.761     0.781       117\n\n    accuracy                          0.799       249\n   macro avg      0.799     0.797     0.798       249\nweighted avg      0.799     0.799     0.799       249\n"
+    },
+    "basic": {
+      "name": "Basic inversion (LLM compares 2 reconstructions)",
+      "n": 249,
+      "accuracy": 0.6626506024096386,
+      "ci95": [
+        0.6024096385542169,
+        0.7188755020080321
+      ],
+      "predicted_A_fraction": 0.5301204819277109,
+      "agreement_with_direct": 0.6144578313253012,
+      "confusion_matrix": [
+        [
+          90,
+          42
+        ],
+        [
+          42,
+          75
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n           A      0.682     0.682     0.682       132\n           B      0.641     0.641     0.641       117\n\n    accuracy                          0.663       249\n   macro avg      0.661     0.661     0.661       249\nweighted avg      0.663     0.663     0.663       249\n",
+      "vs_direct": {
+        "accuracy_diff": -0.13654618473895583,
+        "diff_ci95": [
+          -0.21285140562248997,
+          -0.0642570281124498
+        ],
+        "direct_right_other_wrong": 65,
+        "direct_wrong_other_right": 31,
+        "mcnemar_exact_p": 0.0006747185703333388
+      }
+    },
+    "multi": {
+      "name": "Multi-inversion + embedding similarity",
+      "n": 249,
+      "accuracy": 0.6024096385542169,
+      "ci95": [
+        0.5381526104417671,
+        0.6626506024096386
+      ],
+      "predicted_A_fraction": 0.5582329317269076,
+      "agreement_with_direct": 0.5943775100401606,
+      "confusion_matrix": [
+        [
+          86,
+          46
+        ],
+        [
+          53,
+          64
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n           A      0.619     0.652     0.635       132\n           B      0.582     0.547     0.564       117\n\n    accuracy                          0.602       249\n   macro avg      0.600     0.599     0.599       249\nweighted avg      0.601     0.602     0.601       249\n",
+      "vs_direct": {
+        "accuracy_diff": -0.19678714859437751,
+        "diff_ci95": [
+          -0.27309236947791166,
+          -0.12048192771084337
+        ],
+        "direct_right_other_wrong": 75,
+        "direct_wrong_other_right": 26,
+        "mcnemar_exact_p": 1.1154954264353208e-06
+      }
+    },
+    "cross": {
+      "name": "Multi-inversion + cross-encoder",
+      "n": 249,
+      "accuracy": 0.5983935742971888,
+      "ci95": [
+        0.5381526104417671,
+        0.6586345381526104
+      ],
+      "predicted_A_fraction": 0.5542168674698795,
+      "agreement_with_direct": 0.5903614457831325,
+      "confusion_matrix": [
+        [
+          85,
+          47
+        ],
+        [
+          53,
+          64
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n           A      0.616     0.644     0.630       132\n           B      0.577     0.547     0.561       117\n\n    accuracy                          0.598       249\n   macro avg      0.596     0.595     0.596       249\nweighted avg      0.597     0.598     0.598       249\n",
+      "vs_direct": {
+        "accuracy_diff": -0.20080321285140562,
+        "diff_ci95": [
+          -0.27309236947791166,
+          -0.1285140562248996
+        ],
+        "direct_right_other_wrong": 76,
+        "direct_wrong_other_right": 26,
+        "mcnemar_exact_p": 7.439048296053685e-07
+      }
+    },
+    "delta": {
+      "name": "Delta inversion",
+      "n": 249,
+      "accuracy": 0.6746987951807228,
+      "ci95": [
+        0.6144578313253012,
+        0.7309236947791165
+      ],
+      "predicted_A_fraction": 0.5662650602409639,
+      "agreement_with_direct": 0.6506024096385542,
+      "confusion_matrix": [
+        [
+          96,
+          36
+        ],
+        [
+          45,
+          72
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n           A      0.681     0.727     0.703       132\n           B      0.667     0.615     0.640       117\n\n    accuracy                          0.675       249\n   macro avg      0.674     0.671     0.672       249\nweighted avg      0.674     0.675     0.674       249\n",
+      "vs_direct": {
+        "accuracy_diff": -0.12449799196787148,
+        "diff_ci95": [
+          -0.19678714859437751,
+          -0.05220883534136546
+        ],
+        "direct_right_other_wrong": 59,
+        "direct_wrong_other_right": 28,
+        "mcnemar_exact_p": 0.0011686374974383248
+      }
+    }
+  },
+  "diagnostics": {
+    "mean_best_reconstruction_similarity": 0.8479580076104666,
+    "mean_similarity_all_reconstructions": 0.8269661742400932,
+    "mean_within_response_std": 0.016845356257383298,
+    "by_reconstruction_quality": [
+      {
+        "group": 1,
+        "n": 83,
+        "score_min": 0.5156046748161316,
+        "score_max": 0.8096891641616821,
+        "accuracy": {
+          "direct": 0.7951807228915663,
+          "basic": 0.7590361445783133,
+          "multi": 0.7349397590361446,
+          "cross": 0.6746987951807228,
+          "delta": 0.7108433734939759
+        }
+      },
+      {
+        "group": 2,
+        "n": 83,
+        "score_min": 0.8106547892093658,
+        "score_max": 0.9048958122730255,
+        "accuracy": {
+          "direct": 0.8072289156626506,
+          "basic": 0.6746987951807228,
+          "multi": 0.6024096385542169,
+          "cross": 0.6626506024096386,
+          "delta": 0.6506024096385542
+        }
+      },
+      {
+        "group": 3,
+        "n": 83,
+        "score_min": 0.9055331647396088,
+        "score_max": 1.0000001192092896,
+        "accuracy": {
+          "direct": 0.7951807228915663,
+          "basic": 0.5542168674698795,
+          "multi": 0.46987951807228917,
+          "cross": 0.4578313253012048,
+          "delta": 0.6626506024096386
+        }
+      }
+    ],
+    "by_embedding_margin": [
+      {
+        "group": 1,
+        "n": 83,
+        "score_min": 0.0,
+        "score_max": 0.026439368724822998,
+        "accuracy": {
+          "multi": 0.5421686746987951
+        }
+      },
+      {
+        "group": 2,
+        "n": 83,
+        "score_min": 0.02662503719329834,
+        "score_max": 0.10122460126876831,
+        "accuracy": {
+          "multi": 0.5180722891566265
+        }
+      },
+      {
+        "group": 3,
+        "n": 83,
+        "score_min": 0.10218030214309692,
+        "score_max": 0.5467709302902222,
+        "accuracy": {
+          "multi": 0.7469879518072289
+        }
+      }
+    ],
+    "by_cross_encoder_margin": [
+      {
+        "group": 1,
+        "n": 83,
+        "score_min": 0.0,
+        "score_max": 0.5603048503398895,
+        "accuracy": {
+          "cross": 0.5421686746987951
+        }
+      },
+      {
+        "group": 2,
+        "n": 83,
+        "score_min": 0.5638139247894287,
+        "score_max": 3.256748080253601,
+        "accuracy": {
+          "cross": 0.5180722891566265
+        }
+      },
+      {
+        "group": 3,
+        "n": 83,
+        "score_min": 3.321120262145996,
+        "score_max": 19.898706436157227,
+        "accuracy": {
+          "cross": 0.7349397590361446
+        }
+      }
+    ]
+  }
+}
