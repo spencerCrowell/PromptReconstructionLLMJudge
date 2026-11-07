@@ -1,0 +1,32 @@
+{
+  "config_hash": "28f1a6d23fe7cda8",
+  "config": {
+    "model": "gemma4:31b",
+    "inversions": 5,
+    "seed": 42,
+    "num_ctx": 8192,
+    "embed_model": "BAAI/bge-large-en-v1.5",
+    "cross_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "inversion_temperature": 0.9,
+    "parse_attempts": 3,
+    "prompts": {
+      "direct_judge": "You are an impartial evaluation system.\n\nCompare Response A and Response B and decide which is the better response to the given prompt.\nYou MUST pick one. Do not say they are equal.\n\nReturn exactly one of the following:\n- A\n- B\n\nDo not output anything else.\n\nUser Prompt:\n{prompt}\n\nResponse A:\n{r1}\n\nResponse B:\n{r2}\n",
+      "inversion_basic": "Below is an answer produced by a language model.\n\nYour task is to reconstruct the most likely original user question that generated this answer.\n\nOutput ONLY the reconstructed question.\nDo not explain.\nDo not comment.\nDo not describe the task.\nDo not mention prompts.\n\nAnswer:\n{answer}\n",
+      "basic_inversion_judge": "You are an impartial evaluation system.\n\nYour task is to determine which reconstructed prompt is closer in meaning and intent to the original user prompt.\n\nConsider:\n- similarity in meaning\n- similarity in question type\n- whether the reconstructed prompt would likely generate the original answer\n\nYou MUST pick one. Do not say they are equal.\n\nReturn exactly one of the following:\n- A\n- B\n\nDo not output anything else.\n\nOriginal User Prompt:\n{original}\n\nReconstructed Prompt A:\n{rec_a}\n\nReconstructed Prompt B:\n{rec_b}\n",
+      "inversion_multi": "Below is an answer produced by a language model.\n\nYour task is to reconstruct the most specific and precise original user question that could have generated this answer.\n\nA good reconstruction:\n- Captures the exact intent behind the answer, not just the general topic\n- Is as specific and narrow as the answer implies\n- Reflects the phrasing and detail level a real user would use\n- Cannot be answered by a completely different response on the same topic\n\nOutput ONLY the reconstructed question.\nDo not explain. Do not comment. Do not describe the task. Do not mention prompts.\n\nAnswer:\n{answer}\n",
+      "delta": "Below are two answers produced by different language models responding to the same user question.\n\nYour task:\n1. Decide which answer was likely responding to a more specific, detailed, and well-formed user question.\n2. Reconstruct the most likely original user question that generated THAT answer.\n\nYou MUST pick one. Output \"A\" or \"B\" on the first line (whichever answer came from the better question), then the reconstructed question on the second line.\n\nDo not explain. Do not add commentary. Output exactly two lines.\n\nAnswer A:\n{a}\n\nAnswer B:\n{b}\n"
+    }
+  },
+  "started": "2026-10-12T17:12:47",
+  "versions": {
+    "ollama": "0.6.1",
+    "sentence-transformers": "5.2.2",
+    "scikit-learn": "1.7.2",
+    "datasets": "4.7.0",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "python": "3.10.19"
+  },
+  "ollama_model_details": "parent_model='' format='gguf' family='gemma4' families=['gemma4'] parameter_size='31.3B' quantization_level='Q4_K_M'"
+}
